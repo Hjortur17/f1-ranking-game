@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#app {
+    @apply h-full;
+}
+
+p {
+    @apply leading-3 text-base font-normal;
+}
+
+h1 {
+    @apply font-black text-4xl;
+}
+
+h2 {
+    @apply font-bold text-2xl leading-tight;
+}
+
+h3 {
+    @apply font-light text-xl leading-tight;
+}

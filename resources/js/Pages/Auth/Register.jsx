@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
@@ -27,10 +26,10 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <>
             <Head title="Register" />
 
-            <form onSubmit={submit}>
+            {/* <form onSubmit={submit}>
                 <div>
                     <InputLabel htmlFor="name" value="Name" />
 
@@ -111,7 +110,135 @@ export default function Register() {
                         Register
                     </PrimaryButton>
                 </div>
-            </form>
-        </GuestLayout>
+            </form> */}
+
+            <div className="flex min-h-full flex-1">
+                <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+                    <div className="mx-auto w-full max-w-sm lg:w-96">
+                        <div>
+                            <img
+                                className="h-10 w-auto"
+                                src="https://tailwindui.com/img/logos/mark.svg?color=red&shade=600"
+                                alt="Your Company"
+                            />
+                            <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                                Register for your account
+                            </h2>
+                            <p className="mt-2 text-sm leading-6 text-gray-500">
+                                Already a member?{" "}
+                                <Link
+                                    href="/login"
+                                    className="font-semibold text-main hover:text-main/70"
+                                >
+                                    Login here
+                                </Link>
+                            </p>
+                        </div>
+
+                        <div className="mt-10">
+                            <div>
+                                <form onSubmit={submit} className="space-y-6">
+                                    <div>
+                                        <label
+                                            htmlFor="name"
+                                            className="block text-sm font-medium leading-6 text-gray-900"
+                                        >
+                                            Name
+                                        </label>
+                                        <div className="mt-2">
+                                            <TextInput
+                                                id="name"
+                                                type="text"
+                                                name="name"
+                                                value={data.name}
+                                                className="mt-1 block w-full"
+                                                autoComplete="name"
+                                                isFocused={true}
+                                                onChange={(e) =>
+                                                    setData("name", e.target.value)
+                                                }
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label
+                                            htmlFor="email"
+                                            className="block text-sm font-medium leading-6 text-gray-900"
+                                        >
+                                            Email address
+                                        </label>
+                                        <div className="mt-2">
+                                            <TextInput
+                                                id="email"
+                                                type="email"
+                                                name="email"
+                                                value={data.email}
+                                                className="mt-1 block w-full"
+                                                autoComplete="email"
+                                                isFocused={true}
+                                                onChange={(e) =>
+                                                    setData("email", e.target.value)
+                                                }
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label
+                                            htmlFor="password"
+                                            className="block text-sm font-medium leading-6 text-gray-900"
+                                        >
+                                            Password
+                                        </label>
+                                        <div className="mt-2">
+                                            <input
+                                                id="password"
+                                                name="password"
+                                                type="password"
+                                                autoComplete="current-password"
+                                                required
+                                                className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label
+                                            htmlFor="password_confirmation"
+                                            className="block text-sm font-medium leading-6 text-gray-900"
+                                        >
+                                            Password Confirmation
+                                        </label>
+                                        <div className="mt-2">
+                                            <input
+                                                id="password_confirmation"
+                                                name="password_confirmation"
+                                                type="password"
+                                                autoComplete="confirm-password"
+                                                required
+                                                className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-main sm:text-sm sm:leading-6"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <PrimaryButton disabled={processing}>Register</PrimaryButton>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div className="relative hidden w-0 flex-1 lg:block">
+                    <img
+                        className="absolute inset-0 h-full w-full object-cover"
+                        src="/images/auth-cover.jpg"
+                        alt=""
+                    />
+                </div>
+            </div>
+        </>
     );
 }
